@@ -1,0 +1,38 @@
+<ng-template #admin>
+  <div class="admin fill-parent" fxLayout="column">
+    <mat-toolbar color="primary" class="mat-elevation-z2" fxFlex="0 0 auto">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Best video game character</span>
+      <span fxFlex></span>
+      <button mat-icon-button (click)="onLogoutClick()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="admin__content scrollable" fxFlex>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #menu>
+  <div class="admin__menu">
+    <div class="pt-20 pb-20 text-center">
+      <h3>Hello, {{currentUser ? currentUser.name : '-'}}</h3>
+    </div>
+    <mat-list>
+      <mat-list-item matRipple routerLink="./summary" (click)="sidenav.toggle()">Summary</mat-list-item>
+      <mat-list-item matRipple routerLink="./votes" (click)="sidenav.toggle()">Votes</mat-list-item>
+    </mat-list>
+  </div>
+</ng-template>
+
+<mat-sidenav-container class="page">
+    <mat-sidenav mode="over" #sidenav>
+      <ng-container *ngTemplateOutlet="menu"></ng-container>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ng-container *ngTemplateOutlet="admin"></ng-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,25 @@
+<div class="voteList p-40">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <h1>Votes</h1>
+    <span fxFlex></span>
+    <span>Total: {{votesQuantity}}</span>
+  </div>
+  <mat-table #table [dataSource]="voteList">
+    <ng-container matColumnDef="dni">
+      <mat-header-cell *matHeaderCellDef> DNI </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.user.dni}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="candidate">
+      <mat-header-cell *matHeaderCellDef> Candidate name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.candidate.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        {{ element.created ? ( element.created | date:'dd/MM/yyyy hh:mm:ss' ) : '-' }} 
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

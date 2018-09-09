@@ -1,0 +1,28 @@
+<div class="candidateList fill-parent p-40">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <h1>Summary</h1>
+    <span fxFlex></span>
+    <span>Total: {{votesQuantity}}</span>
+  </div>
+  <div fxLayout="row wrap">
+    <div class="candidateList__candidate__wrapper" *ngFor="let summary of summaryList; trackBy: trackSummaryByFn"
+    fxFlex="50%" fxFlex.gt-sm="33.33%">
+      <div class="candidateList__candidate p-10">
+        <mat-card class="fill-height">
+          <div class="fill-height" fxLayout="column">
+            <div class="candidateList__candidate__image" [style.background-image]="'url('+summary.candidate.image.fileUrl+')'" fxFlex>              
+            </div>
+            <div class="candidateList__candidate__status pt-10 pb-10">
+              <mat-progress-bar mode="determinate" [value]="summary.quantityPercentage(votesQuantity)"></mat-progress-bar>
+              <div fxLayout="row">
+                <span fxFlex></span>
+                <small>{{summary.quantity}}/{{votesQuantity}}</small>
+              </div>
+              <h3 class="text-center">{{summary.candidate.name}}</h3>
+            </div>
+          </div>          
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

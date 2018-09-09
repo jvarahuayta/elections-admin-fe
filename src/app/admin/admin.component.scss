@@ -1,0 +1,9 @@
+.admin{
+    &__menu{
+        width: 250px;
+        mat-list-item{
+            position: relative;
+            cursor: pointer;
+        }
+    }
+}
