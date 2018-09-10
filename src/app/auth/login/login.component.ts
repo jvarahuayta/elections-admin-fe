@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
       if(couldLogin){
         this.toast.success('Successful login','Login');
         this.router.navigateByUrl('/admin');
-        this.splash.showSplash();
       }else{
         this.toast.error('Bad credentials','Login');
       }

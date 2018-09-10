@@ -17,12 +17,15 @@ const routes: Routes = [
       {
         path: 'admin',
         loadChildren: 'app/admin/admin.module#AdminModule',
-        canLoad: [
-          AdminGuard,
-          RoleBasedGuard
-        ],
+        canLoad: [ AdminGuard, RoleBasedGuard ],
+        canActivate: [ RoleBasedGuard ],
         data: {
-          roles: ['admin']
+          roleGuard: {
+            roles: ['admin'],
+            purgeSessionOnFail: true,
+            showSplashOnValid: true,
+            redirectTo: '/auth'
+          }
         }
       },
       {
@@ -34,6 +37,11 @@ const routes: Routes = [
       },
       {
         path: '',
+        pathMatch: 'full',
+        redirectTo: '/auth'
+      },
+      {
+        path: '**',
         pathMatch: 'full',
         redirectTo: '/auth'
       }

@@ -16,21 +16,24 @@ const routes: Routes = [
       {
         path: 'summary',
         loadChildren: 'app/admin-summary/admin-summary.module#AdminSummaryModule',
-        canLoad: [
-          RoleBasedGuard
-        ],
+        canLoad: [ RoleBasedGuard ],
+        canActivate: [ RoleBasedGuard ],
         data: {
-          roles: ['admin']
+          roleGuard: {
+            roles: ['admin']
+          }
         }
       },
       {
         path: 'votes',
         loadChildren: 'app/admin-votes/admin-votes.module#AdminVotesModule',
-        canLoad: [
-          RoleBasedGuard
-        ],
+        canLoad: [ RoleBasedGuard ],
+        canActivate: [ RoleBasedGuard ],
         data: {
-          roles: ['director']
+          roleGuard: {
+            roles: ['director'],
+            redirectTo: '/admin'
+          }          
         }
       }
     ]
