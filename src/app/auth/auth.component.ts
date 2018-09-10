@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SplashUtil } from '../core/utils/splash.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  ngOnInit(){
+  constructor(private splash: SplashUtil){
 
+  }
+
+  ngOnInit(){
+    this.splash.hideSplash();
   }
 
 }

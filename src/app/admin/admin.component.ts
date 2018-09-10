@@ -3,6 +3,7 @@ import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../core/models/user';
 import { UsersService } from '../core/services/users.service';
+import { SplashUtil } from '../core/utils/splash.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,13 +14,15 @@ export class AdminComponent implements OnInit {
 
   currentUser: User;
 
-  constructor(private auth: AuthService, private router: Router, private users: UsersService) {
+  constructor(private auth: AuthService, private router: Router, private users: UsersService,
+  private splash: SplashUtil) {
     this.users.currentUser.subscribe( currentUser => {
       this.currentUser = currentUser;
     })
   }
 
   ngOnInit() {
+    this.splash.hideSplash();
   }
 
   onLogoutClick(){

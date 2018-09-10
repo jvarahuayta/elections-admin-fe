@@ -7,8 +7,31 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <style>
+    #preloader{
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      z-index: 9999;
+      background-color: #FFF;
+    }
+    #preloader #bm{
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  </style>
 </head>
 <body>
+  <div id="preloader">
+    <div id="bm"></div>
+  </div>
   <app-root></app-root>
 </body>
 </html>

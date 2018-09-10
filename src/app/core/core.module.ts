@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../environments/environment';
 import { AuthService } from './services/auth.service';
-import { ToastUtil } from './utils/toast.service';
+import { ToastUtil } from './utils/toast.util';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -29,6 +29,7 @@ import { RouterModule } from '@angular/router';
 import { SummaryService } from './services/summary.service';
 import { VotesService } from './services/votes.service';
 import { RoleBasedGuard } from './guards/role-based.guard';
+import { SplashUtil } from './utils/splash.service';
 
 @NgModule({
   imports: [
@@ -44,7 +45,9 @@ import { RoleBasedGuard } from './guards/role-based.guard';
   ],
   declarations: [InitComponent],
   providers: [
+    
     ToastUtil,
+    SplashUtil,
 
     AuthGuard,
     AdminGuard,
