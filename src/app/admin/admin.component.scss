@@ -4,6 +4,13 @@
         mat-list-item{
             position: relative;
             cursor: pointer;
+            &.active{
+                background-color: rgba(#000,.15);
+            }
         }
+    }
+    /deep/ mat-toolbar{
+        position: relative;
+        z-index: 100;
     }
 }

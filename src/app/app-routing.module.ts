@@ -4,6 +4,7 @@ import { AdminGuard } from './core/guards/admin.guard';
 import { AuthGuard } from './core/guards/auth.guard';
 import { InitComponent } from './core/components/init/init.component';
 import { InitGuard } from './core/guards/init.guard';
+import { RoleBasedGuard } from './core/guards/role-based.guard';
 
 const routes: Routes = [
   {
@@ -17,8 +18,12 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: 'app/admin/admin.module#AdminModule',
         canLoad: [
-          AdminGuard
-        ]
+          AdminGuard,
+          RoleBasedGuard
+        ],
+        data: {
+          roles: ['admin']
+        }
       },
       {
         path: 'auth',

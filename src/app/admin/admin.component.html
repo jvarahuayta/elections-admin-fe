@@ -22,8 +22,12 @@
       <h3>Hello, {{currentUser ? currentUser.name : '-'}}</h3>
     </div>
     <mat-list>
-      <mat-list-item matRipple routerLink="./summary" (click)="sidenav.toggle()">Summary</mat-list-item>
-      <mat-list-item matRipple routerLink="./votes" (click)="sidenav.toggle()">Votes</mat-list-item>
+      <app-role-based-content role="admin">
+        <mat-list-item matRipple routerLink="./summary" routerLinkActive="active" (click)="sidenav.toggle()">Summary</mat-list-item>
+      </app-role-based-content>
+      <app-role-based-content role="director">
+        <mat-list-item matRipple routerLink="./votes" routerLinkActive="active"  (click)="sidenav.toggle()">Votes</mat-list-item>        
+      </app-role-based-content>
     </mat-list>
   </div>
 </ng-template>

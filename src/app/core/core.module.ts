@@ -28,6 +28,7 @@ import { InitGuard } from './guards/init.guard';
 import { RouterModule } from '@angular/router';
 import { SummaryService } from './services/summary.service';
 import { VotesService } from './services/votes.service';
+import { RoleBasedGuard } from './guards/role-based.guard';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { VotesService } from './services/votes.service';
     AuthGuard,
     AdminGuard,
     InitGuard,
+    RoleBasedGuard,
 
     AuthService,
     CandidatesService,

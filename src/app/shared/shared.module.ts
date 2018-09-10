@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule, MatInputModule, MatButtonModule, MatIconModule, MatListModule, MatRippleModule, MatProgressBarModule, MatTableModule } from '@angular/material';
+import { RoleBasedContentComponent } from './components/role-based-content/role-based-content.component';
 
 @NgModule({
-  imports: [    
+  imports: [
+    CommonModule
   ],
-  declarations: [],
+  declarations: [RoleBasedContentComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -20,7 +22,8 @@ import { MatCardModule, MatInputModule, MatButtonModule, MatIconModule, MatListM
     MatListModule,
     MatRippleModule,
     MatProgressBarModule,
-    MatTableModule
+    MatTableModule,
+    RoleBasedContentComponent
   ]
 })
 export class SharedModule { }

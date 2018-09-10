@@ -23,7 +23,8 @@ export class UsersService implements RepositoryService<User>{
         .map( users => {
             return users.map( (user:any) => new User({
                 dni: user.dni,
-                name: user.name
+                name: user.name,
+                roles: user.roles
             }));
         }).catch( err => {
             console.error(err);

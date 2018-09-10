@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { RoleBasedGuard } from '../core/guards/role-based.guard';
 
 const routes: Routes = [
   {
@@ -14,11 +15,23 @@ const routes: Routes = [
       },
       {
         path: 'summary',
-        loadChildren: 'app/admin-summary/admin-summary.module#AdminSummaryModule'
+        loadChildren: 'app/admin-summary/admin-summary.module#AdminSummaryModule',
+        canLoad: [
+          RoleBasedGuard
+        ],
+        data: {
+          roles: ['admin']
+        }
       },
       {
         path: 'votes',
-        loadChildren: 'app/admin-votes/admin-votes.module#AdminVotesModule'
+        loadChildren: 'app/admin-votes/admin-votes.module#AdminVotesModule',
+        canLoad: [
+          RoleBasedGuard
+        ],
+        data: {
+          roles: ['director']
+        }
       }
     ]
   }
