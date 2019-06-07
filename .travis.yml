@@ -11,3 +11,10 @@ before_script:
 script:
 - ng lint
 - ng build --prod --base-href https://jvarahuayta.github.io/elections-admin-fe/
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/elections-admin-fe
+  on:
+    branch: master
